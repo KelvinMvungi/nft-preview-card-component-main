@@ -22,6 +22,9 @@ main {
     background-image: linear-gradient(180deg, hsl(218, 42%, 20%), hsl(216, 50%, 16%));
     border-radius: 15px;
     width: 350px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
 }
 
 .container {
@@ -31,24 +34,53 @@ main {
     gap: 15px;
 }
 
-a .art {
-    width: 300px;
+.art {
+    position: relative;
+}
+
+.art a img {
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
     cursor: pointer;
 }
 
-a .art:hover {
-    color: hsl(178, 100%, 50%);
+.art div {
+    position: absolute;
+    background-color: hsla(178, 100%, 50%, 0.5);
+    top: 0;
+    width: 100%;
+    height: calc(100%);
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: opacity 0.1s ease-in-out;
 }
 
-h1 {
+.art div:hover {
+    opacity: 1;
+    
+}
+
+.art div .view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container>a {
+    text-decoration: none;
+}
+
+a h1 {
     font-weight: 600;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
     transition: color 0.15s ease-in-out;
 }
 
-h1:hover {
+a h1:hover {
     color:  hsl(178, 100%, 50%);
     font-weight: 600;
 }
@@ -108,6 +140,14 @@ hr {
     font-size: 18px;
 }
 
-.profile p span {
+.profile p a {
     color: hsl(0, 0%, 100%);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
 }
+
+.profile p a:hover {
+    color: hsl(178, 100%, 50%);
+}
+
